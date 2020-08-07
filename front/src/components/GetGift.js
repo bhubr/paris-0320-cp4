@@ -22,10 +22,15 @@ const GetGift = () =>{
     <div>
     {giftList.map(gift => {
       return(
-      <div> 
-        <p>{gift.id}</p>
-        <p>{gift.name}</p>
-        <p>{gift.picture}</p>
+      <div className='cardGift'>
+        <div className='picture'> 
+          <p>{gift.id}</p>
+          <img src={backURL + '/pictures/' + gift.picture} alt='logo' />
+        </div>
+        <div className='Gift'>
+          <p>{gift.name}</p>
+          <button className='remove'>Delete</button>
+        </div>
       </div>
     )})}
     </div>

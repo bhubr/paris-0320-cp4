@@ -12,3 +12,15 @@
     margin-left: 10px; 
     outline: none;
 }
+.picture img{
+    width: 600px;
+    height: 400px;
+}
+.picture p{
+    font-size: 20px;
+}
+
+.cardGift{
+    border: solid 2px;
+    padding: 30px;
+}
