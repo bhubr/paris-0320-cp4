@@ -6,6 +6,7 @@ import { backURL } from '../config'
 
 import './GetGift.css'
 import DeleteGift from './DeleteGift'
+import Email from './Email'
 
 const GetGift = () =>{
   const [giftList, setGiftList] = useState([])
@@ -34,6 +35,7 @@ const GetGift = () =>{
         </div>
       </div>
     )})}
+    <Email/>
     </div>
   </>
 )
