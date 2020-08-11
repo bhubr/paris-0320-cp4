@@ -21,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/gifts', indexRoutes.Gifts)
 app.use('/addgift', indexRoutes.Addgift)
+app.use('/email', indexRoutes.Email)
 
 // Use PORT 8000
 
