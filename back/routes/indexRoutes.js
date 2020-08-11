@@ -1,7 +1,9 @@
 const Gifts = require('./gifts')
+const Addgift = require('./addgift')
 
 const indexRoutes = {
-  Gifts
+  Gifts,
+  Addgift
 }
 
 module.exports = indexRoutes

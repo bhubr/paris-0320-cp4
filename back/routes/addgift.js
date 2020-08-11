@@ -6,13 +6,13 @@ const { connection } = require('../helper/config')
 
 const router = express.Router()
 
-router.post('/:filename/:imgname' , (req,res) => {
+router.post('/:filename/:imgname', (req, res) => {
     const { filename, imgname } = req.params
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).json({ msg: 'No file upload' })
       }
     const file = req.files.file
-    file.mv(path.resolve(__dirname, `../public/pictures/` , filename), err => {
+    file.mv(path.resolve(__dirname, `../public/pictures` , filename), err => {
         if(err){
             return res.status(500).send(err)
         }
@@ -22,10 +22,29 @@ router.post('/:filename/:imgname' , (req,res) => {
             if(err){
                 console.error(err.messsage)
             }
-            connection.query('SELECT name, picture from gifts WHERE id = ?' , stats.insertID, (err, result) => {
-                if(err) throw err
-                return res.status(201).send(result[0])
-            } )
         })
     })
 } )
+
+router.delete('/:idGift/:giftname', (req, res) => {
+    console.log(req.params)
+    const { idGift, giftname } = req.params
+    const filePath = path.resolve(__dirname, `../public/pictures/${giftname}`)
+    if (giftname !== '') {
+      try {
+        fs.unlinkSync(filePath)
+      } catch (err) {
+        console.error(err)
+      }
+    }
+    connection.query('DELETE FROM gifts WHERE id = ?', idGift, err => {
+      if (err) {
+        res.status(500).send('Error when deleting a gift')
+      } else {
+        res.status(200).send('The gift has been deleted')
+      }
+    })
+  })
+  
+
+module.exports = router
