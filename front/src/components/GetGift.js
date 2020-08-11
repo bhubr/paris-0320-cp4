@@ -5,6 +5,7 @@ import axios from 'axios'
 import { backURL } from '../config'
 
 import './GetGift.css'
+import DeleteGift from './DeleteGift'
 
 const GetGift = () =>{
   const [giftList, setGiftList] = useState([])
@@ -16,6 +17,7 @@ const GetGift = () =>{
   useEffect(() => {
     fetchGiftList()
   }, [])
+
   
   return(
     <>
@@ -24,12 +26,11 @@ const GetGift = () =>{
       return(
       <div className='cardGift'>
         <div className='picture'> 
-          <p>{gift.id}</p>
           <img src={backURL + '/pictures/' + gift.picture} alt='logo' />
         </div>
         <div className='Gift'>
           <p>{gift.name}</p>
-          <button className='remove'>Delete</button>
+          <DeleteGift giftid={gift.id} giftpicture={gift.picture}/>
         </div>
       </div>
     )})}

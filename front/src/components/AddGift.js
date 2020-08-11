@@ -22,27 +22,28 @@ const onChangeFilename = (e) => {
 const onChangeImgname = (e) => {
   setImgname(e.target.value)
 }
-const onUpload = () => {
+const onUpload = (e) => {
+  // e.preventDefault()
   const formData = new FormData()
   formData.append('file', file)
   setShow(false)
-  axios.post(`${backURL}/addgift/${filename}/${imgname}`, formData, {
+  // window.location.reload()
+  axios.post(`${backURL}/addgift/${filename}/${imgname}`,formData, {
     headers: {
       'Content-Type': 'multipart/form-data'
     }
   })
     
 }
-
   return(
     <>
       <div className='modalAddImg' >
         <h4 onClick={showAddImg} >Add gift</h4>
         <div className='showModal' style={show? {display : 'flex'} : {display : 'none' } }>
-          <form>
+          <form onSubmit={onUpload}>
             <input type='file' name={filename} onChange={onChangeFilename} />
             <input type='text' name={imgname} onChange={onChangeImgname}/>
-            <button onClick={onUpload}>Add</button>
+            <input type='submit' value='add'/>
           </form>
         </div>
       </div>
