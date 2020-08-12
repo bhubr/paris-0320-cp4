@@ -19,8 +19,8 @@ router.post('/', (req, res, next) => {
   const contact = contactList.map(list => list.email)
   const mail = {
     from: process.env.THE_EMAIL,
-    to: process.env.THE_EMAIL,
-    subject: req.body.subject,
+    to: contact,
+    subject: Chekpoint4,
     text: `
     from: Stéphane Pinto 
     contact: ${contact}

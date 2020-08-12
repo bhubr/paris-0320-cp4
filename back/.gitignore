@@ -31,3 +31,6 @@ npm-debug.log
 
 # Dotenv file
 .env
+
+# Public picture
+public
