@@ -22,7 +22,6 @@ const Email = ({ giftList }) => {
   
   return(
     <>
-      {console.log(giftList)}
       <form onSubmit={sendEmail}>
         <h3>Send email :</h3>
         <input type='submit' value='ENVOYER' />

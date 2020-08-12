@@ -23,19 +23,19 @@ const GetGift = () =>{
   return(
     <>
     <div>
-    {giftList.map(gift => {
+      {giftList.map(gift => {
       return(
-      <div className='cardGift'>
-        <div className='picture'> 
-          <img src={backURL + '/pictures/' + gift.picture} alt='logo' />
-        </div>
-        <div className='Gift'>
-          <p>{gift.name}</p>
-          <DeleteGift giftid={gift.id} giftpicture={gift.picture}/>
-        </div>
+        <div className='cardGift'>
+          <div className='picture'> 
+            <img src={backURL + '/pictures/' + gift.picture} alt='logo' />
+          </div>
+          <div className='Gift'>
+            <p>{gift.name}</p>
+            <DeleteGift giftid={gift.id} giftpicture={gift.picture}/>
+          </div>
       </div>
-    )})}
-    <Email giftList={giftList}/>
+      )})}
+      <Email giftList={giftList}/>
     </div>
   </>
 )

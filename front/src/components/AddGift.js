@@ -21,11 +21,9 @@ const onChangeImgname = (e) => {
   setImgname(e.target.value)
 }
 const onUpload = (e) => {
-  // e.preventDefault()
   const formData = new FormData()
   formData.append('file', file)
   setShow(false)
-  // window.location.reload()
   axios.post(`${backURL}/addgift/${filename}/${imgname}`,formData, {
     headers: {
       'Content-Type': 'multipart/form-data'
