@@ -1,0 +1,13 @@
+.modalAddImg h4{
+    border: solid 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.showModal{
+    border: solid 2px;
+    padding: 10px;
+    margin-bottom: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
