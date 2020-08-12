@@ -35,7 +35,7 @@ const GetGift = () =>{
         </div>
       </div>
     )})}
-    <Email/>
+    <Email giftList={giftList}/>
     </div>
   </>
 )

@@ -12,9 +12,7 @@ const AddGift = () =>{
   const [filename, setFilename] = useState('choose a file')
   const [imgname, setImgname] = useState('')
 
-const showAddImg = () => {
-  setShow(!show)
-}
+
 const onChangeFilename = (e) => {
   setFile(e.target.files[0])
   setFilename(e.target.files[0].name)
@@ -38,13 +36,14 @@ const onUpload = (e) => {
   return(
     <>
       <div className='modalAddImg' >
-        <h4 onClick={showAddImg} >Add gift</h4>
+        <h4 onClick={() => setShow(true)} >Add gift</h4>
         <div className='showModal' style={show? {display : 'flex'} : {display : 'none' } }>
           <form onSubmit={onUpload}>
             <input type='file' name={filename} onChange={onChangeFilename} />
             <input type='text' name={imgname} onChange={onChangeImgname}/>
-            <input type='submit' value='add'/>
+            <input type='submit' value='Add'/>
           </form>
+            <button onClick={() => setShow(false)}>Cancel</button>
         </div>
       </div>
   </>
